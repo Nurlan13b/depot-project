@@ -1,0 +1,373 @@
+html,body
+{
+ 
+  margin: 0;
+  padding: 0;
+ 
+  
+  
+  
+  color: #cdcdcd;
+  font-family: "Avenir Next", "Avenir", sans-serif;
+}
+
+#menuToggle {
+    display: block;
+    position: relative;
+    top: 4px;
+    right: -50px; /* Changed 'left' to 'right' */
+    z-index: 1;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+#menuToggle a
+{
+  text-decoration: none;
+  color: #232323;
+  
+  transition: color 0.3s ease;
+}
+
+#menuToggle a:hover
+{
+  color: tomato;
+}
+
+
+#menuToggle input
+{
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  
+  cursor: pointer;
+  
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+  
+  -webkit-touch-callout: none;
+}
+
+
+#menuToggle span
+{
+  display: block;
+  width: 23px;
+  height: 1px;
+  margin-bottom: 5px;
+  position: relative;
+  
+  background: #cdcdcd;
+  border-radius: 3px;
+  
+  z-index: 1;
+  
+  transform-origin: 4px 0px;
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+
+ 
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+ #menu {
+    position: absolute;
+    width: 300px;
+    margin: -100px 0 0 0; /* Removed left margin, added right margin */
+    padding: 50px;
+    padding-top: 125px;
+    background: #ededed;
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+    transform-origin: 100% 0%; /* Changed from 0% 0% to 100% 0% */
+    transform: translate(100%, 0); /* Changed from -100% to 100% */
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+  }
+
+#menu li
+{
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+/*
+ * And let's slide it in from the left
+ */
+#menuToggle input:checked ~ ul
+{
+  transform: none;
+}
+
+
+header {
+    
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-between; 
+    align-items: center;
+    font-size: small;
+}
+
+.left-menu, .center-logo, .right-menu {
+    /* Adjust width and styling as needed */
+    /* For example, set a fixed width for each block */
+    width: 33.33%;
+}
+
+/* Example styling for the blocks (you can customize this as needed) */
+.left-menu {
+    margin-left: 40px;
+    text-align: left;
+}
+.left-menu a{
+    margin-left: 20px;
+    text-decoration: none;
+    color: #232323;
+}
+
+.center-logo {
+    text-align: center;
+    
+}
+.center-logo span{
+    margin-right: 50px;
+}
+
+.right-menu {
+    display: flex; 
+    align-items: center; 
+    
+  }
+
+  .right-menu a {
+    margin-right: 20px; /* Adjust the margin as needed to create space between links */
+    text-decoration: none;
+    color: #232323;
+    
+    
+  }
+  .right-menu i{
+    position: relative;
+    right: 10px;
+    
+  }
+  .right-menu .fa-regular{
+    margin-bottom: 10px;
+
+    
+  }
+  .right-menu .Login{
+    margin-top: 10px;
+  }
+  .slide{
+    margin-top: 20px;
+  }
+
+
+  .carousel-inner img{
+    width: 400px !important;
+    height: 450px !important;
+  }
+
+
+  .content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+}
+
+.frst-obj{
+    height: min-content;
+  display: table;
+  position: relative  ;
+  flex: 1;
+    width: min-content;
+    margin-left: 15%;
+    margin-top: 80px;
+    -webkit-transition: all .2s ease-in-out;
+    transition: 0.5;
+}
+.name{
+    text-align: center;
+    color: #232323 !important;
+}
+.frst-obj p{
+    text-align: center;
+    color: #b4b4b4;
+}
+
+.frst-obj > img {
+   
+    width: 240px;
+    height: 270px;
+   
+    
+}
+
+.frst-obj button{
+  margin-left: 28%;
+}
+.quick {
+  opacity: 0;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.89);
+  color: rgb(253, 253, 253);
+  position: absolute;
+  font-size: smaller;
+  width: 100px;
+  top: 77%;
+  left: 50%;
+  transition: opacity 0.5s;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.frst-obj:hover .quick {
+  display: block;
+  opacity: 1;
+}
+
+.frst-obj .add-to-cart-button {
+  display: none;
+}
+
+
+.frst-obj:hover .add-to-cart-button {
+  display: block;
+  position: relative;
+  bottom: 0;
+  transition: left 0.3s;
+
+  
+}
+
+/* Add some style to the button */
+.add-to-cart-button {
+  bottom: 0;
+  left: 0;
+  background:none;
+  border: none;
+  color: gray;
+  cursor: pointer;
+  
+}
+
+/* Style the button when hovering */
+.frst-obj:hover .add-to-cart-button:hover {
+color: #232323;  
+left: 0;
+  
+}
+
+.frst-obj:hover .price{
+  display: none;
+}
+
+footer{
+  display: flex;
+  margin-left: 120px;
+  letter-spacing: 3px;
+}
+.block {
+
+  margin-top: 30px;
+  display: inline-block;
+  margin-right: 20px;
+  align-items: center;
+  
+  
+  
+  
+}
+.block li a{
+  text-decoration: none;
+  font-size: 10px;
+  font-weight: 500;
+  color: rgb(190, 190, 190);
+  list-style: none;
+  margin-top: 10px;
+  margin-right: 50px;
+  width: max-content;
+  
+}
+.block li{
+  list-style: none;
+}
+
+#email{
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  width: 200px;
+  margin-left: 30px;
+  margin-top: 30px;
+  
+}
+#email:focus{
+outline: none;
+}
+.fa-regular{
+  position: relative;
+  top: 5px;
+  right: 12px;
+}
+
+.block p{
+  font-weight:500;
+  font-size: 15px;
+ 
+  margin-left: 30px;
+}
+.block h4{
+  margin-left: 40px;
+  margin-top: 30px;
+
+}
+.block span{
+  color: rgb(219, 217, 217);
+  width: max-content;
+  margin-top: 10px;
+  margin-left: 30px;
+  font-weight: 700;
+  font-size: medium;
+}
+
